@@ -1,0 +1,184 @@
+--Git Google yaz çıkanı indir-kur
+--command prompt u aç git --version yaz kontrol et.
+
+
+--Gitup hesap oluştur sonra repository oluştur
+
+
+---Komutlar 
+!Git komutları ya cmd den yada intelij den çalışır ve kullandığımız projenin içinde olmamız lazım.
+git --version
+git init
+git config --global user.email "selcukcaliskan98@gmail.com"
+git config --global user.name "SelcukCaliskan"
+git status  //Projedeki hangi dosyaların eklenmediğini gösterir.
+git add .
+git status
+git commit -m "first commit"  //Genelde version numarası yada yaptığınız değişiklikler ile alakalı mesajlardır.
+git remote add origin https://... //Bunu repository den kopyalıyoeuz ve bize local de bir kaynak oluşturuyor.
+git push -u origin master
+
+
+
+
+
+
+
+
+
+Yeni Git 
+git bash kur Yoube den Yeni başlayanlar için 90 dk Git
+
+-- pwd                                                               //Bash e gel ve //nerde hangi klasörde olduğunu söyler
+--cd deneme/ hani klsöre geleceksen onu yaz
+--git config --list //kim hangi username
+--git config --global user.name 'SelcukCaliskan'                    //yapılandırır bu isme göre
+--git config --global user.email 'selcukcaliskan98@gmail.com'       //yapılandırır bu maile göre
+--git init
+--git status
+--git add .
+--git status
+--git commit -m "first commit"                                   //Genelde version numarası yada yaptığınız değişiklikler ile alakalı mesajlardır.
+--git remote add origin https://...                             //Bunu repository den kopyalıyoeuz ve bize local de bir kaynak oluşturuyor.
+--git push -u origin master
+
+--git pull 
+--git fetch //will update the list of changes.
+--git status
+
+--git add -A                                                     //yaptığımız tüm değişiklikleri stage area yollar.
+--Yeni bir dosya oluşturdum.
+touch text.txt
+
+--cd .. ana dosyaya döner
+--git status -s         //değişikliği gösterir
+--git add index.html    
+--git restore --staged index.html  //bunu stage den tekrar alıp çalışma dizinine alabilir.
+--git restore index.html    //çalışma dizisinden da alır.
+
+*Commit ettiğimiz değişiklikleri geri almak
+--git show //son yaptığım commiti gösterir
+--git log  //Bütün yaptığımız commitleri değişiklikleri gösterir 
+--git log --oneline //daha sade commitleri gösterir
+--git log -p -2 //son iki commiti değişikliği gösterir
+--git log --since=10minutes //10 dk önceki değişikliği commitleri getirir.
+
+--git log --oneline //tek tek commitleri gösterir başındakini kopyala
+--git checkout 16c9d7f //yaptığımız değişikliğe geliriz commite
+--git checkout master  //zaman makinesinde tekrar başa geldim
+--git revert 16c9d7f //bu commiti iptal eder.
+--Çıkmak için esc ve kaydetmek için :x! bunu kaydet ve çık başa döneriz.
+
+--git reset 3 tipi var dikkatli ol kullanırken   //Yaptığımız değişikler yanlış oldu ve en başa dönmek istedik
+
+
+
+
+**Bazı çalışma dosyalarının repoya göderilmesini istemyoruz.
+--touch .gitignore //dosyamı oluşturdum
+--touch log.txt //dosyamı oluşturdum ve bunu göstermek istemiyorum.
+--git add .  //çalışma dizinine yolladım
+--git commit -m "gitignore ve log.txt dosyam"
+--Senaryom şu ben log.txt dosyamla ilgilenmek istemiyorum.
+ve .gitignore dosyasının içine giderek ben log.txt yazıyorum bunu kaydediyorum.
+--git status
+--git add .
+--git commit -m "gitignore güncellendi"
+senaryo devamı ben log.txt ye bişiler yazarsam ve --git status dersem hala log.txt görünür.
+--git rm -r --cached .  //Tüm takip edilen dosyaları izlemeden kaldırır.
+--git add . //Tüm dosyalrı stage areya yolladım
+--git commit -m "gitignore sorunu cözüldü"
+--git status //dersek artık log.txt izlenmeden kaldırıldı
+aslın ilk başta gitignore dosyası yapılması lazım bundan dolayı biraz uğraştık...
+--gitignore dosyasına *.xyz yazarsak tüm xyz uzantılı dosyaları izlemek istemedimizi söylemiş oluruz...
+
+
+***Branch
+--git branch cssbranch  // git checkout -b cssfeature --Bu hem branch oluşturur hemde içine girer ikisi bir kısayol //Bu dala css e bakanlar 
+--git branch htmlbranch //Bu dala html e bakanlar
+--git branch -a  //Tüm kayıtlı branchleri getirir.
+--git checkout cssbranch  //cssbranch e gittim ve ben burdan sorumluyum diyelim.
+
+--Merge Bütün hepsini birleştirir.
+--git merge cssbranch diyelim.
+
+
+
+
+*****GİTHUP KULLANIMI********
+Bash e gel
+--pwd
+--cd Desktop/
+--mkdir githubprojects  //Proje oluşturduk
+-- cd githubprojects/   //Projenin içerisine geldik..
+gituba giderek yeni bir repository oluşturduk ismini  starter yaptık
+--bashe gel
+--mkdir starter
+$ cd starter/      //içine girdik..
+--echo "# starter" >> README.md    //githupdan ilk kodu aldık...
+--ls -al  //dersek oluşan dosyaya projeye bakabiliriz..
+--git init // Komutları olduğu yazıyoruz...  Burda yeni bir repositoymiz oluştu..
+--git add README.md
+--git commit -m "ilk commit"
+--git remote add origin https://github.com/SelcukCaliskan/starter.git
+--git push -u origin master   
+
+Senaryo bir tane index.html dosyası oluşturduk ve bunu bashde git status diyerek baktık
+şimdi tek bir dosya olduğu için bunu hem add hem commit yapacaz.
+--git commit -am "Index.html oluşturuldu"  //ikisini yaptımm..
+--git push //dersek yollar
+
+
+
+***Senaryo CLONLAMA***
+Clone ve zip olarak indirdiğimiz dosyalar farklı zipte git dosyası olmuyor o yüzden clone önemlii
+
+Yeni bir repository oluşturduk genesis diye be readme olsun bu sefer
+ve Add ten gitignore  ekleme yapabiliriz.. Yapmadık ama
+oluşturduk.
+Şimdi bu repository nin clone adresini kopyalıyoruz.
+--cd .. //üst tarafa bizi atsın 
+--git clone clone kopya adresi
+
+--git remote -v  //Pustan önce bakabiliriz..
+--git push 
+
+Github kalemden değişiklik yaptık mesela committe bırakalım
+Bunu şimdi locale çekecez.
+Senaryo hem githubtan kalemle dğişiklik yaptık hemde localde bi değişiklik yapacaz
+ve bunu nasıl birlikte çalıştıracaz..
+--git commit -am "font size 10 yapıldı" //değişikliği hallettik
+--git push  //Local değişikliği değiştirdik ama hata alıyoruz sebep uzaktada bi değişiklik var önce remote uzaktaki değişikliği fetch et sonra localde push et
+--git fetch //Uzaktaki değişikliği koplayar sonra merge etmemiz gerekir.
+--git merge 
+--git pull //Remote dan alır fetch ve merge eşittir.
+
+
+
+**Branclerle senaryo 55dk
+şimdi bir tane cssfeature dalı oluşurduk
+--git checkout -b cssfeature //Hem branch oluşturdu hemde içine girdi.
+Css.css den değişiklik yaptık mesela stause baktık
+Şimdi bunu git add . yapıyoruz ve 
+--git push origin cssfeature // diyoruz hangi branchse onu diyoruz.
+Gitubtan yeni bir branch isteği gelir. 
+--git branch -d cssfeature  //siler dikkat et..
+
+
+**Collaborator 1.03 dk
+Settings manage access diyip invite collaboratar dedik diğer account diyerek iki farklı 
+kulllanıcı yada farklı kişileride bu projeye eklemiş olduk..
+
+Forklama çatal demek bir projeye katkıda bulunmak için colloborator olmak gerekir..
+Fork atacaz giphub arama kısmını spoon-knife geldik ve ona tıkladık
+sonra fork dedik.
+Fork dedikten sonra bana bu projeyi verdi
+Biz  bunu değiştirebiliriz sonra collaborator olmak isteyecez böyle katkı sunabiliriz.
+
+
+**Mükemmel Senaryo Hosting alma son 5 dk
+Bunu kesin yap...
+
+
+
+
